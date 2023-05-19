@@ -29,7 +29,7 @@ public class foro extends AppCompatActivity {
         webView.setWebViewClient(new WebViewClient());
 
         // Cargar una URL específica
-        webView.loadUrl("https://www.google.com");
+        webView.loadUrl("https://ananoemimgg.discussion.community/?authtoken=24dfd2cb32ab923638927492b7598ec1&rememberMe=1");
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
         bottomNavigationView.setSelectedItemId(R.id.bottom_foro);

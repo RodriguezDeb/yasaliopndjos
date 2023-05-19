@@ -13,9 +13,9 @@
         android:layout_gravity="center"
         android:textSize="20sp"/> -->
 
-    <!--<WebView
-        android:id="@+id/webviewId"
+    <WebView
+        android:id="@+id/webviewId2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" /> -->
+        android:layout_height="match_parent" />
 
 </FrameLayout>

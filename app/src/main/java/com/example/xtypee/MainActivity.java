@@ -17,7 +17,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     ImageSlider imageSlider;
-    TextView textView;
+    TextView textView, textView22;
 
     private static final String[] TEXTOS = {
             "Según datos de la plataforma inmobiliaria Propiedades.com, el precio promedio por metro cuadrado de una propiedad en la Ciudad de México es de alrededor de 32,000 pesos mexicanos.",
@@ -99,4 +99,5 @@ public class MainActivity extends AppCompatActivity {
             return false;
         });
     }
+
 }

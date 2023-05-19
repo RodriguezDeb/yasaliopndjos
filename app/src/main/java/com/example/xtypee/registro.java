@@ -59,9 +59,6 @@ public class registro extends AppCompatActivity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
-
-
-
         //Contraseñas nuevas
         lista= new ArrayList<>();
         MyData myData=null;
@@ -108,6 +105,9 @@ public class registro extends AppCompatActivity implements View.OnClickListener 
                 reference.child(nombrei).setValue(helperClass);
 
                 Toast.makeText(registro.this, "Registro exitoso", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(registro.this, login.class);
+                startActivity(intent);
 
               /*  MyInfo info= new MyInfo();
                 usr = String.valueOf(usuarioaa.getText());

@@ -101,10 +101,6 @@ public class login extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               correoaaa = String.valueOf(userE.getText());
-
-                pswd = String.valueOf(pswdsE.getText());
-               // acceso(usr , pswd);
                 if(!validatePassword() | !validateUsername()){
 
                 }else{
@@ -161,7 +157,14 @@ public class login extends AppCompatActivity {
                     String passwordFromDB = snapshot.child(userUsername).child("contrasenai").getValue(String.class);
                     if(!Objects.equals(passwordFromDB, userPassword)){
                         userE.setError(null);
+                        String nameFromDB = snapshot.child(userUsername).child("nombrei").getValue(String.class);
+                        String emailFromDB = snapshot.child(userUsername).child("correoi").getValue(String.class);
+                        String usernameFromDB = snapshot.child(userUsername).child("usuarioi").getValue(String.class);
                         Intent intent = new Intent(login.this, MainActivity.class);
+                        intent.putExtra("nombrei", nameFromDB);
+                        intent.putExtra("correoi", emailFromDB);
+                        intent.putExtra("usuarioi", usernameFromDB);
+                        intent.putExtra("contrasenai", passwordFromDB);
                         startActivity(intent);
                     }else{
                         pswdsE.setError("Contraseña incorrecta");
@@ -181,7 +184,7 @@ public class login extends AppCompatActivity {
 
     }
 
-    public void acceso(String usr , String pswd){
+    /*public void acceso(String usr , String pswd){
         int i=0;
         if(usr.equals("")||pswd.equals("")){
             Toast.makeText(getApplicationContext(), "Llena los campos", Toast.LENGTH_LONG).show();
@@ -201,5 +204,5 @@ public class login extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "No se ha encontrado el usuario", Toast.LENGTH_LONG).show();
             }
         }
-    }
+    }*/
 }

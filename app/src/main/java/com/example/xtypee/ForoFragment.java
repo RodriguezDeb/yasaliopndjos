@@ -26,7 +26,7 @@ public class ForoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_foro, container, false);
-        webView = view.findViewById(R.id.webviewId);
+        webView = view.findViewById(R.id.webviewId2);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient());
         webView.loadUrl("https://ananoemimg2.discussion.community/");
