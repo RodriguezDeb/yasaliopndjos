@@ -1,18 +1,35 @@
 package com.example.xtypee;
 
 public class ListData {
-    String name;
-    String tamano, garage, habitaciones, precio, desc, bano;
-    int img;
-
-    public ListData(String name, String tamano, String bano, String garage, String habitaciones, String precio, String desc, int img) {
-        this.name = name;
-        this.tamano = tamano;
-        this.garage = garage;
-        this.bano = bano;
-        this.habitaciones = habitaciones;
-        this.precio = precio;
-        this.desc = desc;
-        this.img = img;
+    private String dataTitle;
+    private String dataDesc;
+    private String dataLang;
+    private String dataImage;
+    private String key;
+    public String getKey() {
+        return key;
+    }
+    public void setKey(String key) {
+        this.key = key;
+    }
+    public String getDataTitle() {
+        return dataTitle;
+    }
+    public String getDataDesc() {
+        return dataDesc;
+    }
+    public String getDataLang() {
+        return dataLang;
+    }
+    public String getDataImage() {
+        return dataImage;
+    }
+    public ListData(String dataTitle, String dataDesc, String dataLang, String dataImage) {
+        this.dataTitle = dataTitle;
+        this.dataDesc = dataDesc;
+        this.dataLang = dataLang;
+        this.dataImage = dataImage;
+    }
+    public ListData(){
     }
 }

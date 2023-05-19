@@ -22,4 +22,7 @@
     <color name="back">#C1D2E6</color>
     <color name="trans">#7A000000</color>
     <color name="grey">#B5B5B5</color>
+    <color name="lavender">#8692f7</color>
+    <color name="red">#c70000</color>
+    <color name="green">#00ff00</color>
 </resources>

@@ -4,54 +4,76 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 public class DetallesActivity extends AppCompatActivity {
 
-    TextView detailName;
-    TextView detailTamano;
-    TextView detailGarage;
-    TextView detailBanos;
-    TextView detailHabitaciones;
-    TextView detailPrecio;
-    TextView detailDescripcion;
+    TextView detailDesc, detailTitle, detailLang;
     ImageView detailImage;
+    FloatingActionButton deleteButton, editButton;
+    String key = "";
+    String imageUrl = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalles);
 
-        detailName = findViewById(R.id.detailName);
-        detailTamano = findViewById(R.id.detalleTamano);
-        detailHabitaciones = findViewById(R.id.detalleHabitaciones);
-        detailGarage = findViewById(R.id.detalleGarage);
-        detailBanos = findViewById(R.id.detalleBanos);
-        detailPrecio = findViewById(R.id.detallePrecio);
-        detailDescripcion = findViewById(R.id.detalleDescripcion);
+        detailDesc = findViewById(R.id.detailDesc);
         detailImage = findViewById(R.id.detailImage);
-
-        Intent intent = getIntent();
-        if (intent != null) {
-            String name = intent.getStringExtra("name");
-            String garage = intent.getStringExtra("garage");
-            String tamano = intent.getStringExtra("tamano");
-            String bano = intent.getStringExtra("bano");
-            String habitaciones = intent.getStringExtra("habitaciones");
-            String precio = intent.getStringExtra("precio");
-            String descripcion = intent.getStringExtra("descripcion");
-            int image = intent.getIntExtra("image", R.drawable.huno);
-
-            detailName.setText(name);
-            detailTamano.setText(tamano);
-            detailGarage.setText(garage);
-            detailBanos.setText(bano);
-            detailHabitaciones.setText(habitaciones);
-            detailPrecio.setText(precio);
-            detailDescripcion.setText(descripcion);
-            detailImage.setImageResource(image);
+        detailTitle = findViewById(R.id.detailTitle);
+        deleteButton = findViewById(R.id.deleteButton);
+        editButton = findViewById(R.id.editButton);
+        detailLang = findViewById(R.id.detailLang);
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null){
+            detailDesc.setText(bundle.getString("Description"));
+            detailTitle.setText(bundle.getString("Title"));
+            detailLang.setText(bundle.getString("Language"));
+            key = bundle.getString("Key");
+            imageUrl = bundle.getString("Image");
+            Glide.with(this).load(bundle.getString("Image")).into(detailImage);
         }
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Android Tutorials");
+                FirebaseStorage storage = FirebaseStorage.getInstance();
+                StorageReference storageReference = storage.getReferenceFromUrl(imageUrl);
+                storageReference.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        reference.child(key).removeValue();
+                        Toast.makeText(DetallesActivity.this, "Deleted", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        finish();
+                    }
+                });
+            }
+        });
+        editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DetallesActivity.this, UpdateActivity.class)
+                        .putExtra("Title", detailTitle.getText().toString())
+                        .putExtra("Description", detailDesc.getText().toString())
+                        .putExtra("Language", detailLang.getText().toString())
+                        .putExtra("Image", imageUrl)
+                        .putExtra("Key", key);
+                startActivity(intent);
+            }
+        });
     }
 }
 
