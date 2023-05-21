@@ -72,7 +72,7 @@ public class Metodos {
     }
     //Metodos JSON el getFile tiene bug
     //Metodo de llenado
-    public static void fillInfo(MyInfo info){
+    /*public static void fillInfo(MyInfo info){
         info.setUsuario(registro.usr);
         String pass = registro.password;
         info.setPassword(pass);
@@ -82,6 +82,6 @@ public class Metodos {
         info.setRegion(registro.region);
         info.setSexo(registro.activado);
         info.setNombre(registro.nom);
-    }
+    */
 
 }

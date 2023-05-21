@@ -53,7 +53,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/buttonL"
+            android:id="@+id/buttonL2"
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_marginStart="25dp"
@@ -74,7 +74,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        android:id="@+id/buttonR"
+        android:id="@+id/buttonR2"
         android:layout_width="346dp"
         android:layout_height="60dp"
         android:layout_marginStart="16dp"
@@ -153,7 +153,7 @@
         android:fontFamily="@font/raleway"
         android:text="@string/text777"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/buttonR"
+        app:layout_constraintBottom_toTopOf="@+id/buttonR2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pswds" />
@@ -169,7 +169,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/buttonR"
+        app:layout_constraintTop_toBottomOf="@+id/buttonR2"
         app:srcCompat="@drawable/instagram" />
 
     <ImageView
@@ -183,7 +183,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/buttonR"
+        app:layout_constraintTop_toBottomOf="@+id/buttonR2"
         app:srcCompat="@drawable/gorjeo" />
 
     <TextView
@@ -203,7 +203,7 @@
         app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonR" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonR2" />
 
     <ImageView
         android:id="@+id/imageView6"
@@ -217,7 +217,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toBottomOf="@+id/buttonR"
+        app:layout_constraintTop_toBottomOf="@+id/buttonR2"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/github" />
 
@@ -248,7 +248,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonR"
+        app:layout_constraintTop_toBottomOf="@+id/buttonR2"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/facebook" />
 

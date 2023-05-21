@@ -25,8 +25,8 @@ public class choice extends AppCompatActivity {
 
         setContentView(R.layout.activity_choice1);
 
-        buttonl = findViewById(R.id.buttonL);
-        buttonr = findViewById(R.id.buttonR);
+        buttonl = findViewById(R.id.buttonL2);
+        buttonr = findViewById(R.id.buttonR2);
 
         buttonr.setOnClickListener(new View.OnClickListener() {
             @Override

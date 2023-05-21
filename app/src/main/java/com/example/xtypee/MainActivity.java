@@ -1,5 +1,6 @@
 package com.example.xtypee;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,6 +11,11 @@ import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -18,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     ImageSlider imageSlider;
     TextView textView, textView22;
+    DatabaseReference miBDFirebase;
 
     private static final String[] TEXTOS = {
             "Según datos de la plataforma inmobiliaria Propiedades.com, el precio promedio por metro cuadrado de una propiedad en la Ciudad de México es de alrededor de 32,000 pesos mexicanos.",
@@ -43,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Obtener nombre del usuario
+        textView22 = findViewById(R.id.textView333);
+
         // Obtener una referencia al TextView
         textView = findViewById(R.id.textView2);
 
@@ -54,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
         textView.setText(TEXTOS[indiceAleatorio]);
 
         imageSlider = findViewById(R.id.imageSlider);
+        showAllUserData();
 
         ArrayList<SlideModel> imageList = new ArrayList<>();
         imageList.add( new SlideModel(R.drawable.huno, ScaleTypes.FIT));
@@ -61,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
         imageList.add( new SlideModel(R.drawable.htres, ScaleTypes.FIT));
         imageList.add( new SlideModel(R.drawable.hcuatro, ScaleTypes.FIT));
         imageList.add( new SlideModel(R.drawable.hcinco, ScaleTypes.FIT));
+
 
         imageSlider.setImageList(imageList);
 
@@ -98,6 +110,12 @@ public class MainActivity extends AppCompatActivity {
             }
             return false;
         });
+    }
+    public void showAllUserData(){
+        Intent intent = getIntent();
+        String nameUser = intent.getStringExtra("nombrei");
+        textView22.setText(nameUser);
+
     }
 
 }
