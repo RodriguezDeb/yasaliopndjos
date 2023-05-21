@@ -14,27 +14,53 @@ public class about extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
+        Intent intent = getIntent();
+        String nameUser2 = intent.getStringExtra("nombrei");
+        String emailUser = intent.getStringExtra("correoi");
+        String usernameUser = intent.getStringExtra("usuarioi");
+        String passwordUser = intent.getStringExtra("contrasenai");
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
         bottomNavigationView.setSelectedItemId(R.id.bottom_about);
         bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.bottom_home:
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    Intent intenthome = new Intent(getApplicationContext(), MainActivity.class);
+                    intenthome.putExtra("nombrei", nameUser2);
+                    intenthome.putExtra("correoi", emailUser);
+                    intenthome.putExtra("usuarioi", usernameUser);
+                    intenthome.putExtra("contrasenai", passwordUser);  // Agrega los extras que desees enviar
+                    startActivity(intenthome);
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     finish();
                     return true;
                 case R.id.bottom_propiedades:
-                    startActivity(new Intent(getApplicationContext(), propiedades.class));
+                    Intent intentpro = new Intent(getApplicationContext(), propiedades.class);
+                    intentpro.putExtra("nombrei", nameUser2);
+                    intentpro.putExtra("correoi", emailUser);
+                    intentpro.putExtra("usuarioi", usernameUser);
+                    intentpro.putExtra("contrasenai", passwordUser);  // Agrega los extras que desees enviar
+                    startActivity(intentpro);
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     finish();
                     return true;
                 case R.id.bottom_foro:
-                    startActivity(new Intent(getApplicationContext(), foro.class));
+                    Intent intentforo = new Intent(getApplicationContext(), foro.class);
+                    intentforo.putExtra("nombrei", nameUser2);
+                    intentforo.putExtra("correoi", emailUser);
+                    intentforo.putExtra("usuarioi", usernameUser);
+                    intentforo.putExtra("contrasenai", passwordUser);  // Agrega los extras que desees enviar
+                    startActivity(intentforo);
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     finish();
                     return true;
                 case R.id.bottom_profile:
-                    startActivity(new Intent(getApplicationContext(), perfil.class));
+                    Intent intentperfil = new Intent(getApplicationContext(), perfil.class);
+                    intentperfil.putExtra("nombrei", nameUser2);
+                    intentperfil.putExtra("correoi", emailUser);
+                    intentperfil.putExtra("usuarioi", usernameUser);
+                    intentperfil.putExtra("contrasenai", passwordUser);  // Agrega los extras que desees enviar
+                    startActivity(intentperfil);
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     finish();
                     return true;

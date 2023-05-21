@@ -70,6 +70,7 @@
                         android:layout_weight="1"
                         android:background="#F1F1F6"
                         android:hint="Deb226"
+                        android:enabled="false"
                         android:textAlignment="viewEnd"
                         android:textColor="@color/black"
                         android:textSize="18sp" />
@@ -220,6 +221,27 @@
                 app:layout_constraintStart_toStartOf="@id/linearLayout"
                 app:layout_constraintTop_toBottomOf="@id/linearLayout"
                 app:layout_constraintVertical_bias="0.236" />
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNavigation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginBottom="28dp"
+                android:background="@drawable/bottom_background"
+                android:elevation="2dp"
+                app:itemIconSize="30dp"
+                app:itemIconTint="@drawable/item_selector"
+                app:itemRippleColor="@android:color/transparent"
+                app:labelVisibilityMode="unlabeled"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/saveBut"
+                app:layout_constraintStart_toStartOf="@id/saveBut"
+                app:layout_constraintTop_toBottomOf="@id/saveBut"
+                app:menu="@menu/bottom_menu" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -28,29 +28,55 @@ public class perfil extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
 
+        Intent intent = getIntent();
+        String nameUser3 = intent.getStringExtra("nombrei");
+        String emailUser3 = intent.getStringExtra("correoi");
+        String usernameUser3 = intent.getStringExtra("usuarioi");
+        String passwordUser3 = intent.getStringExtra("contrasenai");
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
         bottomNavigationView.setSelectedItemId(R.id.bottom_profile);
         bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.bottom_home:
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    Intent intenthome = new Intent(getApplicationContext(), MainActivity.class);
+                    intenthome.putExtra("nombrei", nameUser3);
+                    intenthome.putExtra("correoi", emailUser3);
+                    intenthome.putExtra("usuarioi", usernameUser3);
+                    intenthome.putExtra("contrasenai", passwordUser3);  // Agrega los extras que desees enviar
+                    startActivity(intenthome);
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     finish();
                     return true;
                 case R.id.bottom_propiedades:
-                    startActivity(new Intent(getApplicationContext(), propiedades.class));
+                    Intent intentpro = new Intent(getApplicationContext(), propiedades.class);
+                    intentpro.putExtra("nombrei", nameUser3);
+                    intentpro.putExtra("correoi", emailUser3);
+                    intentpro.putExtra("usuarioi", usernameUser3);
+                    intentpro.putExtra("contrasenai", passwordUser3);  // Agrega los extras que desees enviar
+                    startActivity(intentpro);
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     finish();
                     return true;
                 case R.id.bottom_foro:
-                    startActivity(new Intent(getApplicationContext(), foro.class));
+                    Intent intentforo = new Intent(getApplicationContext(), foro.class);
+                    intentforo.putExtra("nombrei", nameUser3);
+                    intentforo.putExtra("correoi", emailUser3);
+                    intentforo.putExtra("usuarioi", usernameUser3);
+                    intentforo.putExtra("contrasenai", passwordUser3);  // Agrega los extras que desees enviar
+                    startActivity(intentforo);
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     finish();
                     return true;
                 case R.id.bottom_profile:
                     return true;
                 case R.id.bottom_about:
-                    startActivity(new Intent(getApplicationContext(), about.class));
+                    Intent intentabout = new Intent(getApplicationContext(), about.class);
+                    intentabout.putExtra("nombrei", nameUser3);
+                    intentabout.putExtra("correoi", emailUser3);
+                    intentabout.putExtra("usuarioi", usernameUser3);
+                    intentabout.putExtra("contrasenai", passwordUser3);  // Agrega los extras que desees enviar
+                    startActivity(intentabout);
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     finish();
                     return true;
@@ -86,7 +112,7 @@ public class perfil extends AppCompatActivity {
         String usernameUser = intent.getStringExtra("usuarioi");
         String passwordUser = intent.getStringExtra("contrasenai");
         titleName.setText(nameUser);
-        titleUsername.setText(usernameUser);
+        titleUsername.setText(emailUser);
         profileName.setText(nameUser);
         profileEmail.setText(emailUser);
         profileUsername.setText(usernameUser);

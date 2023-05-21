@@ -28,6 +28,7 @@ public class registro extends AppCompatActivity {
         pick = findViewById(R.id.pick);
         signupButton = findViewById(R.id.button4);
 
+
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
